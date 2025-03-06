@@ -1,6 +1,6 @@
 package com.fotova.service;
 
-import com.fotova.dto.StripeProductRequest;
+import com.fotova.dto.stripe.StripeProductRequest;
 import com.fotova.dto.StripeResponse;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
@@ -44,7 +44,7 @@ public class StripeService {
         SessionCreateParams params =
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
-                        .setSuccessUrl("http://localhost:8080/api/v1/auth/success")
+                        .setSuccessUrl("http://localhost:8080/api/v1/auth/" + productRequest.getName() + "/success")
                         .setCancelUrl("http://localhost:8080/api/v1/auth/cancel")
                         .addLineItem(lineItem)
                         .build();
