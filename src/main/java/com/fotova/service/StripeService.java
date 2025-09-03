@@ -54,7 +54,7 @@ public class StripeService {
         try {
             session = Session.create(params);
         } catch (StripeException e) {
-            System.out.println("Error while creating Stripe Session");
+            throw new RuntimeException(e);
         }
 
         return StripeResponse
