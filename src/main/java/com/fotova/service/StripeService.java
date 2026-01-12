@@ -14,6 +14,12 @@ public class StripeService {
     @Value("${stripe.secretKey}")
     private String secretKey;
 
+    @Value("${app.env.host}")
+    private String HOST;
+
+    @Value("${app.env.protocol}")
+    private String PROTOCOL;
+
     public StripeResponse checkoutProducts(StripeProductRequest productRequest) {
         // Set your secret key. Remember to switch to your live secret key in production!
         Stripe.apiKey = secretKey;
@@ -44,8 +50,8 @@ public class StripeService {
         SessionCreateParams params =
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
-                        .setSuccessUrl("http://localhost:8080/api/v1/auth/" + productRequest.getName() + "/success")
-                        .setCancelUrl("http://localhost:8080/api/v1/auth/cancel")
+                        .setSuccessUrl(PROTOCOL + "://" + HOST + ":8080/api/v1/auth/" + productRequest.getName() + "/success")
+                        .setCancelUrl(PROTOCOL + "://" + HOST + ":8080/api/v1/auth/cancel")
                         .addLineItem(lineItem)
                         .build();
 
