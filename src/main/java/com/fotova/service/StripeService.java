@@ -51,7 +51,7 @@ public class StripeService {
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
                         .setSuccessUrl(PROTOCOL + "://" + HOST + ":8080/api/v1/auth/" + productRequest.getName() + "/success")
-                        .setCancelUrl(PROTOCOL + "://" + HOST + ":8080/api/v1/auth/cancel")
+                        .setCancelUrl(PROTOCOL + "://" + HOST + ":8080/api/v1/auth/" + productRequest.getName() + "/cancel")
                         .addLineItem(lineItem)
                         .build();
 
