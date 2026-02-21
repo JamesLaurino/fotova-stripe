@@ -72,7 +72,6 @@ public class StripeService {
                             margin: 0 auto;
                         }
 
-                        /* ✅ Check centré */
                         .checkmark::after {
                             content: '';
                             position: absolute;
@@ -85,7 +84,7 @@ public class StripeService {
                             transform: translate(-50%, -50%) rotate(45deg);
                             animation: draw 0.5s ease forwards;
                         }
-                
+
                         a {
                             display: inline-block;
                             margin-top: 25px;
@@ -97,7 +96,7 @@ public class StripeService {
                             font-weight: 600;
                             transition: background 0.2s;
                         }
-                
+ 
                         a:hover {
                             background: #4f46e5;
                         }
