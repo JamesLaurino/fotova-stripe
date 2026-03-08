@@ -145,56 +145,132 @@ public class StripeHtmlProdService implements StripeHtmlService {
     public String buildFailureHtml() {
 
         return """
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Paiement échoué</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background: linear-gradient(135deg, #F44336, #B71C1C);
-                    color: white;
-                    text-align: center;
-                    padding-top: 100px;
+                <!DOCTYPE html>
+                <html lang="fr">
+                <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Paiement échoué</title>
+                
+                <style>
+                
+                body{
+                    margin:0;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+                    background:#f6f7fb;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    height:100vh;
                 }
-                .card {
-                    background: white;
-                    color: #333;
-                    padding: 40px;
-                    margin: auto;
-                    width: 400px;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                
+                .card{
+                    background:white;
+                    padding:40px;
+                    max-width:480px;
+                    width:90%;
+                    border-radius:14px;
+                    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+                    text-align:center;
                 }
-                h1 {
-                    color: #B71C1C;
+                
+                .icon{
+                    font-size:60px;
+                    margin-bottom:15px;
                 }
-                a {
-                    display: inline-block;
-                    margin-top: 20px;
-                    padding: 12px 24px;
-                    background-color: #F44336;
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 8px;
-                    font-weight: bold;
+                
+                h1{
+                    margin:10px 0;
+                    font-size:26px;
+                    color:#d32f2f;
                 }
-                a:hover {
-                    background-color: #C62828;
+                
+                p{
+                    color:#555;
+                    line-height:1.6;
                 }
-            </style>
-        </head>
-        <body>
-            <div class="card">
-                <h1>Paiement échoué ❌</h1>
-                <p>Une erreur est survenue lors du traitement.</p>
-                <a href="https://82.29.172.74/cart">
-                    Retourner au panier
-                </a>
-            </div>
-        </body>
-        </html>
+                
+                ul{
+                    text-align:left;
+                    margin:20px 0;
+                    padding-left:20px;
+                    color:#666;
+                }
+                
+                .buttons{
+                    margin-top:25px;
+                }
+                
+                .btn{
+                    display:inline-block;
+                    padding:12px 22px;
+                    border-radius:8px;
+                    text-decoration:none;
+                    font-weight:600;
+                    margin:6px;
+                }
+                
+                .btn-primary{
+                    background:#d32f2f;
+                    color:white;
+                }
+                
+                .btn-primary:hover{
+                    background:#b71c1c;
+                }
+                
+                .btn-secondary{
+                    background:#eceff1;
+                    color:#333;
+                }
+                
+                .btn-secondary:hover{
+                    background:#dfe3e6;
+                }
+                
+                .footer{
+                    margin-top:20px;
+                    font-size:14px;
+                    color:#888;
+                }
+                
+                </style>
+                </head>
+                
+                <body>
+                
+                <div class="card">
+                
+                <div class="icon">❌</div>
+                
+                <h1>Paiement refusé</h1>
+                
+                <p>
+                Nous n'avons pas pu finaliser votre paiement. \s
+                Votre commande n'a pas été débitée.
+                </p>
+                
+                <ul>
+                <li>Solde insuffisant</li>
+                <li>Informations de carte incorrectes</li>
+                <li>Validation bancaire refusée</li>
+                <li>Problème temporaire avec le moyen de paiement</li>
+                </ul>
+                
+                <div class="buttons">
+                                <a href="https://82.29.172.74/cart">
+                                    Retourner au panier
+                                </a>
+                </div>
+                
+                <div class="footer">
+                Si le problème persiste, contactez le support.
+                </div>
+                
+                </div>
+                
+                </body>
+                </html>
         """;
     }
 
